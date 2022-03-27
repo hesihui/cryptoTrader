@@ -2,5 +2,5 @@ package cryptoTrader.service.interFace;
 
 public interface UserServiceInterFace {
 
-    boolean authenticate();
+    boolean authenticate(String userName, String password);
  }

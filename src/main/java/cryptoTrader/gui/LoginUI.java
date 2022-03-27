@@ -1,5 +1,7 @@
 package cryptoTrader.gui;
 
+import cryptoTrader.service.proxy.UserServiceProxy;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -79,14 +81,14 @@ public class LoginUI {
 					String password = input_password.getText();
 					String username = input_username.getText();
 					// UserService.authenticate(username, password)) {
-					if (password.contains("king") && username.contains("kk")) {
+					UserServiceProxy authen = new UserServiceProxy();
+					if (authen.authenticate(username, password)) {
 						input_password.setText(null);
 						input_username.setText(null);
 						JFrame frame = MainUI.getInstance();
 						frame.setSize(900, 600);
 						frame.pack();
 						frame.setVisible(true);
-						
 					}else {
 						JOptionPane.showMessageDialog(null, "invalid user infomation", "Login error", JOptionPane.ERROR_MESSAGE);
 						System.exit(0);
