@@ -171,7 +171,7 @@ public class MainUI extends JFrame implements ActionListener {
 		stats.add(component);
 		stats.revalidate();
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
