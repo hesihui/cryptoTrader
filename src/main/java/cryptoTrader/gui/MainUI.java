@@ -131,7 +131,10 @@ public class MainUI extends JFrame implements ActionListener {
 		JButton addRow = new JButton("Add Row");
 		JButton remRow = new JButton("Remove Row");
 		addRow.setActionCommand("addTableRow");
+
 		addRow.addActionListener(this);
+
+
 		remRow.setActionCommand("remTableRow");
 		remRow.addActionListener(this);
 
