@@ -71,7 +71,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="find" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="find" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cryptoTrader.service.find" />
       <module name="cryptoAnalyzer" />
       <extension name="coverage">
@@ -105,7 +105,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.user_verify" />
-        <item itemvalue="Application.find" />
       </list>
     </recent_temporary>
   </component>
@@ -119,7 +118,7 @@
       <updated>1648244105954</updated>
       <workItem from="1648244109122" duration="354000" />
       <workItem from="1648273170639" duration="2028000" />
-      <workItem from="1648413917048" duration="2688000" />
+      <workItem from="1648413917048" duration="3944000" />
     </task>
     <servers />
   </component>

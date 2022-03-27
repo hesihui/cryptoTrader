@@ -85,10 +85,11 @@ public class LoginUI {
 					if (authen.authenticate(username, password)) {
 						input_password.setText(null);
 						input_username.setText(null);
-						JFrame frame = MainUI.getInstance();
-						frame.setSize(900, 600);
-						frame.pack();
-						frame.setVisible(true);
+						JFrame mainFrame = MainUI.getInstance();
+						mainFrame.setSize(900, 600);
+						mainFrame.pack();
+						mainFrame.setVisible(true);
+						frame.setVisible(false);
 					}else {
 						JOptionPane.showMessageDialog(null, "invalid user infomation", "Login error", JOptionPane.ERROR_MESSAGE);
 						System.exit(0);
