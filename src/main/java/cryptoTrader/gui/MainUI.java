@@ -171,14 +171,7 @@ public class MainUI extends JFrame implements ActionListener {
 		stats.add(component);
 		stats.revalidate();
 	}
-
-	public static void main(String[] args) {
-		JFrame frame = MainUI.getInstance();
-		frame.setSize(900, 600);
-		frame.pack();
-		frame.setVisible(true);
-	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
