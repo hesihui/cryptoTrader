@@ -107,10 +107,7 @@ public class MainUI extends JFrame implements ActionListener {
 		trade.setActionCommand("refresh");
 		trade.addActionListener(this);
 
-
-
 		JPanel south = new JPanel();
-		
 		south.add(trade);
 
 		dtm = new DefaultTableModel(new Object[] { "Trading Client", "Coin List", "Strategy Name" }, 1);
@@ -119,22 +116,27 @@ public class MainUI extends JFrame implements ActionListener {
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Trading Client Actions",
 				TitledBorder.CENTER, TitledBorder.TOP));
+
 		Vector<String> strategyNames = new Vector<String>();
 		strategyNames.add("None");
 		strategyNames.add("Strategy-A");
 		strategyNames.add("Strategy-B");
 		strategyNames.add("Strategy-C");
 		strategyNames.add("Strategy-D");
+
 		TableColumn strategyColumn = table.getColumnModel().getColumn(2);
+
+		// 选择strategy list
 		JComboBox comboBox = new JComboBox(strategyNames);
 		strategyColumn.setCellEditor(new DefaultCellEditor(comboBox));
+
 		JButton addRow = new JButton("Add Row");
 		JButton remRow = new JButton("Remove Row");
+
+
 		addRow.setActionCommand("addTableRow");
 
 		addRow.addActionListener(this);
-
-
 		remRow.setActionCommand("remTableRow");
 		remRow.addActionListener(this);
 
@@ -185,7 +187,11 @@ public class MainUI extends JFrame implements ActionListener {
 						JOptionPane.showMessageDialog(this, "please fill in Trader name on line " + (count + 1) );
 						return;
 					}
+
 					String traderName = traderObject.toString();
+					// 得到row的信息
+					System.out.println(traderName);
+
 					Object coinObject = dtm.getValueAt(count, 1);
 					if (coinObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
