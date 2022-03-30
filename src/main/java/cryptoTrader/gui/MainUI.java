@@ -28,6 +28,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+import cryptoTrader.service.entity.CurrentClientsInfo;
 import cryptoTrader.utils.DataVisualizationCreator;
 
 public class MainUI extends JFrame implements ActionListener {
