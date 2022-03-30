@@ -29,6 +29,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 import cryptoTrader.service.entity.CurrentClientsInfo;
+import cryptoTrader.service.entity.TradingBroker;
 import cryptoTrader.utils.DataVisualizationCreator;
 
 public class MainUI extends JFrame implements ActionListener {
@@ -45,7 +46,8 @@ public class MainUI extends JFrame implements ActionListener {
 
 	private JTextArea selectedTickerList;
 //	private JTextArea tickerList;
-	private JTextArea tickzerText;
+	private JTextArea tickerText;
+	private JTextArea BrokerText;
 	private JComboBox<String> strategyList;
 	private Map<String, List<String>> brokersTickers = new HashMap<>();
 	private Map<String, String> brokersStrategies = new HashMap<>();
@@ -107,31 +109,35 @@ public class MainUI extends JFrame implements ActionListener {
 		trade.setActionCommand("refresh");
 		trade.addActionListener(this);
 
-
-
 		JPanel south = new JPanel();
-		
 		south.add(trade);
 
 		dtm = new DefaultTableModel(new Object[] { "Trading Client", "Coin List", "Strategy Name" }, 1);
 		table = new JTable(dtm);
 		// table.setPreferredSize(new Dimension(600, 300));
-		
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Trading Client Actions",
 				TitledBorder.CENTER, TitledBorder.TOP));
+
 		Vector<String> strategyNames = new Vector<String>();
 		strategyNames.add("None");
 		strategyNames.add("Strategy-A");
 		strategyNames.add("Strategy-B");
 		strategyNames.add("Strategy-C");
 		strategyNames.add("Strategy-D");
+
 		TableColumn strategyColumn = table.getColumnModel().getColumn(2);
+
+		// 选择strategy list
 		JComboBox comboBox = new JComboBox(strategyNames);
 		strategyColumn.setCellEditor(new DefaultCellEditor(comboBox));
+
 		JButton addRow = new JButton("Add Row");
 		JButton remRow = new JButton("Remove Row");
+
+
 		addRow.setActionCommand("addTableRow");
+
 		addRow.addActionListener(this);
 		remRow.setActionCommand("remTableRow");
 		remRow.addActionListener(this);
@@ -181,13 +187,15 @@ public class MainUI extends JFrame implements ActionListener {
 					Object traderObject = dtm.getValueAt(count, 0);
 					if (traderObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in Trader name on line " + (count + 1) );
+						CurrentClientsInfo.clearLists();
 						return;
 					}
-					String traderName = traderObject.toString();
 
+					String traderName = traderObject.toString();
 					// check if the broker name already exists, a message is displayed and the broker is not added.
 					if (CurrentClientsInfo.ifBrokerNameDuplicated(traderName)) {
 						JOptionPane.showMessageDialog(this, "Duplicated broker names on line " + (count + 1) );
+						CurrentClientsInfo.clearLists();
 						return;
 					}
 					CurrentClientsInfo.addTradingName(traderName);
@@ -195,16 +203,24 @@ public class MainUI extends JFrame implements ActionListener {
 					Object coinObject = dtm.getValueAt(count, 1);
 					if (coinObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
+						CurrentClientsInfo.clearLists();
 						return;
 					}
 					String[] coinNames = coinObject.toString().split(",");
 					Object strategyObject = dtm.getValueAt(count, 2);
 					if (strategyObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in strategy name on line " + (count + 1) );
+						CurrentClientsInfo.clearLists();
 						return;
 					}
 					String strategyName = strategyObject.toString();
-					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
+					TradingBroker newBroker = new TradingBroker(traderName, coinNames, strategyName);
+					CurrentClientsInfo.addTradingBroker(newBroker);
+					List<TradingBroker> brokerList = CurrentClientsInfo.returnBrokerList();
+//					System.out.println(brokerList.get(0).getClientName());
+//					System.out.println(brokerList.get(0).getCoinList()[0]);
+//					System.out.println(brokerList.get(0).getStrategy());
+//					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
 	        }
 			stats.removeAll();
 			DataVisualizationCreator creator = new DataVisualizationCreator();
@@ -217,5 +233,5 @@ public class MainUI extends JFrame implements ActionListener {
 				dtm.removeRow(selectedRow);
 		}
 	}
-
 }
+
