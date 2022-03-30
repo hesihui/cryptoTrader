@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77f7946a-153b-4b86-8b86-8fbc1bc0014e" name="Changes" comment="" />
+    <list default="true" id="77f7946a-153b-4b86-8b86-8fbc1bc0014e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cryptoTrader/gui/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cryptoTrader/gui/MainUI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,9 +28,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/cryptoTrader/service/UserService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/cryptoTrader/service/login/UserService.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/cryptoTrader/utils/AvailableCryptoList.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/cryptoTrader/service/proxy/UserServiceProxy.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/cryptoTrader/service/login/UserServiceProxy.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/cryptoTrader/gui/LoginUI.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/cryptoTrader/gui/MainUI.java" root0="FORCE_HIGHLIGHTING" />
@@ -76,7 +79,7 @@
       <module name="cryptoAnalyzer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cryptoTrader.service.*" />
+          <option name="PATTERN" value="cryptoTrader.service.login.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,7 +92,7 @@
       <module name="cryptoAnalyzer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cryptoTrader.service.*" />
+          <option name="PATTERN" value="cryptoTrader.service.login.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,7 +121,9 @@
       <updated>1648244105954</updated>
       <workItem from="1648244109122" duration="354000" />
       <workItem from="1648273170639" duration="2028000" />
-      <workItem from="1648413917048" duration="3944000" />
+      <workItem from="1648413917048" duration="6996000" />
+      <workItem from="1648491274755" duration="954000" />
+      <workItem from="1648638870028" duration="1929000" />
     </task>
     <servers />
   </component>
