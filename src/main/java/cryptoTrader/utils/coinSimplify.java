@@ -1,4 +1,4 @@
-package cryptoTrader.utlis;
+package cryptoTrader.utils;
 import java.util.*;
 
 public class coinSimplify {
