@@ -1,10 +1,10 @@
 package cryptoTrader.utils;
 import java.util.*;
 
-public class coinSimplify {
+public class CoinSimplify {
 	
 	Hashtable<String, String> cryptoCoin = new Hashtable<String, String>();
-	public coinSimplify() {
+	public CoinSimplify() {
 		// TODO Auto-generated constructor stub
 		cryptoCoin.put("BTC","bitcoin");
 		cryptoCoin.put("ETH","ethereum");
