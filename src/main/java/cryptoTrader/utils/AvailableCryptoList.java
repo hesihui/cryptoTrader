@@ -16,8 +16,8 @@ import com.google.gson.JsonParser;
 public class AvailableCryptoList {
 	private static AvailableCryptoList instance = null;
 	
-	private Map<String, String> availableCryptosMap = new HashMap<>();
-	private List<String> availableCryptosList = new ArrayList<>();
+	private Map<String, String> availableCryptosMap = new HashMap<String, String>();
+	private List<String> availableCryptosList = new ArrayList<String>();
 	
 	public static AvailableCryptoList getInstance() {
 		if (instance == null)
