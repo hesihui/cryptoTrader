@@ -34,7 +34,7 @@ import cryptoTrader.utils.DataVisualizationCreator;
 
 public class MainUI extends JFrame implements ActionListener {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -45,7 +45,7 @@ public class MainUI extends JFrame implements ActionListener {
 	private List<String> selectedList;
 
 	private JTextArea selectedTickerList;
-//	private JTextArea tickerList;
+	//	private JTextArea tickerList;
 	private JTextArea tickerText;
 	private JTextArea BrokerText;
 	private JComboBox<String> strategyList;
@@ -144,7 +144,7 @@ public class MainUI extends JFrame implements ActionListener {
 
 		scrollPane.setPreferredSize(new Dimension(800, 300));
 		table.setFillsViewportHeight(true);
-		
+
 
 		JPanel east = new JPanel();
 //		east.setLayout();
@@ -184,44 +184,44 @@ public class MainUI extends JFrame implements ActionListener {
 		String command = e.getActionCommand();
 		if ("refresh".equals(command)) {
 			for (int count = 0; count < dtm.getRowCount(); count++){
-					Object traderObject = dtm.getValueAt(count, 0);
-					if (traderObject == null) {
-						JOptionPane.showMessageDialog(this, "please fill in Trader name on line " + (count + 1) );
-						CurrentClientsInfo.clearLists();
-						return;
-					}
+				Object traderObject = dtm.getValueAt(count, 0);
+				if (traderObject == null) {
+					JOptionPane.showMessageDialog(this, "please fill in Trader name on line " + (count + 1) );
+					CurrentClientsInfo.clearLists();
+					return;
+				}
 
-					String traderName = traderObject.toString();
-					// check if the broker name already exists, a message is displayed and the broker is not added.
-					if (CurrentClientsInfo.ifBrokerNameDuplicated(traderName)) {
-						JOptionPane.showMessageDialog(this, "Duplicated broker names on line " + (count + 1) );
-						CurrentClientsInfo.clearLists();
-						return;
-					}
-					CurrentClientsInfo.addTradingName(traderName);
+				String traderName = traderObject.toString();
+				// check if the broker name already exists, a message is displayed and the broker is not added.
+				if (CurrentClientsInfo.ifBrokerNameDuplicated(traderName)) {
+					JOptionPane.showMessageDialog(this, "Duplicated broker names on line " + (count + 1) );
+					CurrentClientsInfo.clearLists();
+					return;
+				}
+				CurrentClientsInfo.addTradingName(traderName);
 
-					Object coinObject = dtm.getValueAt(count, 1);
-					if (coinObject == null) {
-						JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
-						CurrentClientsInfo.clearLists();
-						return;
-					}
-					String[] coinNames = coinObject.toString().split(",");
-					Object strategyObject = dtm.getValueAt(count, 2);
-					if (strategyObject == null) {
-						JOptionPane.showMessageDialog(this, "please fill in strategy name on line " + (count + 1) );
-						CurrentClientsInfo.clearLists();
-						return;
-					}
-					String strategyName = strategyObject.toString();
-					TradingBroker newBroker = new TradingBroker(traderName, coinNames, strategyName);
-					CurrentClientsInfo.addTradingBroker(newBroker);
-					List<TradingBroker> brokerList = CurrentClientsInfo.returnBrokerList();
+				Object coinObject = dtm.getValueAt(count, 1);
+				if (coinObject == null) {
+					JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
+					CurrentClientsInfo.clearLists();
+					return;
+				}
+				String[] coinNames = coinObject.toString().split(",");
+				Object strategyObject = dtm.getValueAt(count, 2);
+				if (strategyObject == null) {
+					JOptionPane.showMessageDialog(this, "please fill in strategy name on line " + (count + 1) );
+					CurrentClientsInfo.clearLists();
+					return;
+				}
+				String strategyName = strategyObject.toString();
+				TradingBroker newBroker = new TradingBroker(traderName, coinNames, strategyName);
+				CurrentClientsInfo.addTradingBroker(newBroker);
+				List<TradingBroker> brokerList = CurrentClientsInfo.returnBrokerList();
 //					System.out.println(brokerList.get(0).getClientName());
 //					System.out.println(brokerList.get(0).getCoinList()[0]);
 //					System.out.println(brokerList.get(0).getStrategy());
 //					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
-	        }
+			}
 			stats.removeAll();
 			DataVisualizationCreator creator = new DataVisualizationCreator();
 			creator.createCharts();
@@ -233,5 +233,5 @@ public class MainUI extends JFrame implements ActionListener {
 				dtm.removeRow(selectedRow);
 		}
 	}
-
 }
+
