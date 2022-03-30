@@ -184,6 +184,14 @@ public class MainUI extends JFrame implements ActionListener {
 						return;
 					}
 					String traderName = traderObject.toString();
+					CurrentClientsInfo.addTradingName(traderName);
+
+					// check if the broker name already exists, a message is displayed and the broker is not added.
+					if (CurrentClientsInfo.ifBrokerNameDuplicated(traderName)) {
+						JOptionPane.showMessageDialog(this, "Duplicated broker names on line " + (count + 1) );
+						return;
+					}
+
 					Object coinObject = dtm.getValueAt(count, 1);
 					if (coinObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
