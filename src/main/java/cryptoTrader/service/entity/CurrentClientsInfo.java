@@ -1,7 +1,6 @@
 package cryptoTrader.service.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class CurrentClientsInfo {
     private static CurrentClientsInfo instance = null;
@@ -42,5 +41,16 @@ public class CurrentClientsInfo {
     public static void clearLists() {
         tradingBrokerList = new ArrayList<>();
         clientNames = new ArrayList<>();
+    }
+    
+    public static List<String> returnInterstedCoins() {
+        Set<String> tradingSet = new HashSet<>();
+        for (TradingBroker broker : tradingBrokerList) {
+            List<String> coins = Arrays.asList(broker.getCoinList());
+            for (String item : coins) {
+                tradingSet.add(item);
+            }
+        }
+        return new ArrayList<>(tradingSet);
     }
 }
