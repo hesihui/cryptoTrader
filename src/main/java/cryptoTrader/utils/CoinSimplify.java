@@ -29,7 +29,7 @@ public class CoinSimplify {
 		
 	}
 	
-	public HashTable<String, String> getCoinNameMap() {
+	public Hashtable<String, String> getCoinNameMap() {
 		return cryptoCoin;
 	}
 
