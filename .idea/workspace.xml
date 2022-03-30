@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77f7946a-153b-4b86-8b86-8fbc1bc0014e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/cryptoTrader/gui/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cryptoTrader/gui/MainUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cryptoAnalyzer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cryptoAnalyzer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/gui/LoginUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/gui/LoginUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/gui/LoginUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/gui/LoginUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/gui/LoginUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/gui/LoginUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/gui/MainUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/gui/MainUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/service/entity/TradingBroker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/service/entity/TradingBroker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/service/find.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/service/find.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/service/login/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/service/login/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/service/login/UserServiceInterFace.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/service/login/UserServiceInterFace.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/service/login/UserServiceProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/service/login/UserServiceProxy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/utils/AvailableCryptoList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/utils/AvailableCryptoList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/utils/DataFetcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/utils/DataFetcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cryptoTrader/utils/DataVisualizationCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cryptoTrader/utils/DataVisualizationCreator.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +63,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />

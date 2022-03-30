@@ -9,11 +9,8 @@
         <module name="cryptoAnalyzer" />
       </profile>
     </annotationProcessing>
-<<<<<<< Updated upstream
     <bytecodeTargetLevel>
       <module name="cryptoAnalyzer" target="7" />
     </bytecodeTargetLevel>
-=======
->>>>>>> Stashed changes
   </component>
 </project>
