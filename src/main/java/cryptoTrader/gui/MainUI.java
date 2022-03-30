@@ -45,8 +45,7 @@ public class MainUI extends JFrame implements ActionListener {
 
 	private JTextArea selectedTickerList;
 //	private JTextArea tickerList;
-	private JTextArea tickerText;
-	private JTextArea BrokerText;
+	private JTextArea tickzerText;
 	private JComboBox<String> strategyList;
 	private Map<String, List<String>> brokersTickers = new HashMap<>();
 	private Map<String, String> brokersStrategies = new HashMap<>();
