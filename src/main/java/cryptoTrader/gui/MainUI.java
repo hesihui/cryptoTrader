@@ -28,6 +28,8 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+import cryptoTrader.service.entity.CurrentClientsInfo;
+import cryptoTrader.service.entity.TradingBroker;
 import cryptoTrader.utils.DataVisualizationCreator;
 
 public class MainUI extends JFrame implements ActionListener {
@@ -189,9 +191,6 @@ public class MainUI extends JFrame implements ActionListener {
 					}
 
 					String traderName = traderObject.toString();
-					// 得到row的信息
-					System.out.println(traderName);
-
 					Object coinObject = dtm.getValueAt(count, 1);
 					if (coinObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
@@ -204,7 +203,13 @@ public class MainUI extends JFrame implements ActionListener {
 						return;
 					}
 					String strategyName = strategyObject.toString();
-					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
+					TradingBroker newBroker = new TradingBroker(traderName, coinNames, strategyName);
+					CurrentClientsInfo.addTradingBroker(newBroker);
+					List<TradingBroker> brokerList = CurrentClientsInfo.returnBrokerList();
+//					System.out.println(brokerList.get(0).getClientName());
+//					System.out.println(brokerList.get(0).getCoinList()[0]);
+//					System.out.println(brokerList.get(0).getStrategy());
+//					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
 	        }
 			stats.removeAll();
 			DataVisualizationCreator creator = new DataVisualizationCreator();

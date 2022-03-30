@@ -1,7 +1,7 @@
-package cryptoTrader.service.proxy;
+package cryptoTrader.service.login;
 
-import cryptoTrader.service.interFace.UserServiceInterFace;
-import cryptoTrader.service.UserService;
+import cryptoTrader.service.login.UserServiceInterFace;
+import cryptoTrader.service.login.UserService;
 
 public class UserServiceProxy implements UserServiceInterFace {
 

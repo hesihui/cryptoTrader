@@ -1,4 +1,4 @@
-package cryptoTrader.service.interFace;
+package cryptoTrader.service.login;
 
 public interface UserServiceInterFace {
 
