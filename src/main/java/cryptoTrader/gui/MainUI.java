@@ -116,6 +116,7 @@ public class MainUI extends JFrame implements ActionListener {
 		dtm = new DefaultTableModel(new Object[] { "Trading Client", "Coin List", "Strategy Name" }, 1);
 		table = new JTable(dtm);
 		// table.setPreferredSize(new Dimension(600, 300));
+		
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Trading Client Actions",
 				TitledBorder.CENTER, TitledBorder.TOP));
@@ -131,10 +132,7 @@ public class MainUI extends JFrame implements ActionListener {
 		JButton addRow = new JButton("Add Row");
 		JButton remRow = new JButton("Remove Row");
 		addRow.setActionCommand("addTableRow");
-
 		addRow.addActionListener(this);
-
-
 		remRow.setActionCommand("remTableRow");
 		remRow.addActionListener(this);
 
