@@ -38,4 +38,9 @@ public class CurrentClientsInfo {
         }
         return false;
     }
+
+    public static void clearLists() {
+        tradingBrokerList = new ArrayList<>();
+        clientNames = new ArrayList<>();
+    }
 }

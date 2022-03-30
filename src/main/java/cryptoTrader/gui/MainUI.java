@@ -187,28 +187,30 @@ public class MainUI extends JFrame implements ActionListener {
 					Object traderObject = dtm.getValueAt(count, 0);
 					if (traderObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in Trader name on line " + (count + 1) );
+						CurrentClientsInfo.clearLists();
 						return;
 					}
 
 					String traderName = traderObject.toString();
-
 					// check if the broker name already exists, a message is displayed and the broker is not added.
 					if (CurrentClientsInfo.ifBrokerNameDuplicated(traderName)) {
 						JOptionPane.showMessageDialog(this, "Duplicated broker names on line " + (count + 1) );
+						CurrentClientsInfo.clearLists();
 						return;
 					}
-
 					CurrentClientsInfo.addTradingName(traderName);
 
 					Object coinObject = dtm.getValueAt(count, 1);
 					if (coinObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
+						CurrentClientsInfo.clearLists();
 						return;
 					}
 					String[] coinNames = coinObject.toString().split(",");
 					Object strategyObject = dtm.getValueAt(count, 2);
 					if (strategyObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in strategy name on line " + (count + 1) );
+						CurrentClientsInfo.clearLists();
 						return;
 					}
 					String strategyName = strategyObject.toString();
