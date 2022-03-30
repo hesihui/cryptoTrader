@@ -28,5 +28,9 @@ public class CoinSimplify {
 		cryptoCoin.put("NEAR","near protocol");
 		
 	}
+	
+	public HashTable<String, String> getCoinNameMap() {
+		return cryptoCoin;
+	}
 
 }
