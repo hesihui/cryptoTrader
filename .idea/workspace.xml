@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="77f7946a-153b-4b86-8b86-8fbc1bc0014e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cryptoTrader/gui/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cryptoTrader/gui/MainUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +122,8 @@
       <workItem from="1648273170639" duration="2028000" />
       <workItem from="1648413917048" duration="6996000" />
       <workItem from="1648491274755" duration="954000" />
-      <workItem from="1648638870028" duration="1929000" />
+      <workItem from="1648638870028" duration="2179000" />
+      <workItem from="1648659377230" duration="1442000" />
     </task>
     <servers />
   </component>
