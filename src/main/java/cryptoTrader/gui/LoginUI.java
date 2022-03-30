@@ -1,6 +1,7 @@
 package cryptoTrader.gui;
 
-import cryptoTrader.service.proxy.UserServiceProxy;
+import cryptoTrader.service.login.UserServiceProxy;
+import cryptoTrader.service.entity.CurrentClientsInfo;
 
 import java.awt.EventQueue;
 
@@ -14,6 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+
 
 public class LoginUI {
 
@@ -90,6 +93,9 @@ public class LoginUI {
 						mainFrame.pack();
 						mainFrame.setVisible(true);
 						frame.setVisible(false);
+
+						// initialize the clients info
+						CurrentClientsInfo current = CurrentClientsInfo.getInstance();
 					}else {
 						JOptionPane.showMessageDialog(null, "invalid user infomation", "Login error", JOptionPane.ERROR_MESSAGE);
 						System.exit(0);

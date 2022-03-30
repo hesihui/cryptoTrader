@@ -1,11 +1,8 @@
-package cryptoTrader.service;
-
-import cryptoTrader.service.interFace.UserServiceInterFace;
+package cryptoTrader.service.login;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class UserService implements UserServiceInterFace {
 
@@ -16,13 +13,6 @@ public class UserService implements UserServiceInterFace {
         try {
             in = new FileReader("userDB.txt");
             BufferedReader br = new BufferedReader(in);
-//            Scanner keyboard = new Scanner(System.in);
-
-//            System.out.print("Username: ");
-//            String user = keyboard.nextLine();
-//
-//            System.out.print("Password: ");
-//            String pass = keyboard.nextLine();
 
             while ((record = br.readLine()) != null) {
 
