@@ -1,4 +1,4 @@
-package cryptoTrader.service.entity;
+package cryptoTrader.entity;
 
 public class TradingBroker {
     private String clientName;

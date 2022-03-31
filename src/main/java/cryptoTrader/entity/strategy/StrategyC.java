@@ -1,4 +1,4 @@
-package cryptoTrader.service.entity.strategy;
+package cryptoTrader.entity.strategy;
 
 public class StrategyC implements Strategy{
 

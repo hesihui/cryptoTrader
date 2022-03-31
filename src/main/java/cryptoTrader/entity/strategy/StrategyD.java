@@ -1,6 +1,6 @@
-package cryptoTrader.service.entity.strategy;
+package cryptoTrader.entity.strategy;
 
-public class StrategyB implements Strategy{
+public class StrategyD implements Strategy{
 
     private boolean peroform(String[] coinList) { return false;}
 

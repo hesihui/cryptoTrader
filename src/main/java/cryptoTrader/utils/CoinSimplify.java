@@ -3,9 +3,13 @@ import java.util.*;
 
 public class CoinSimplify {
 	
-	Hashtable<String, String> cryptoCoin = new Hashtable<String, String>();
+	static Hashtable<String, String> cryptoCoin = null;
 	public CoinSimplify() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public static Hashtable<String, String> getCoinNameMap() {
+		cryptoCoin = new Hashtable<String, String>();
 		cryptoCoin.put("BTC","bitcoin");
 		cryptoCoin.put("ETH","ethereum");
 		cryptoCoin.put("USDT","tether");
@@ -27,10 +31,7 @@ public class CoinSimplify {
 		cryptoCoin.put("DAI","dai");
 		cryptoCoin.put("NEAR","near protocol");
 		
-	}
-	
-	public Hashtable<String, String> getCoinNameMap() {
 		return cryptoCoin;
 	}
-
+	
 }

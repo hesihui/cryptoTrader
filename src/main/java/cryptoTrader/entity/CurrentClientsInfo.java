@@ -1,4 +1,4 @@
-package cryptoTrader.service.entity;
+package cryptoTrader.entity;
 
 import java.util.*;
 
