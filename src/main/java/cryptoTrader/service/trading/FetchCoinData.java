@@ -23,8 +23,9 @@ public class FetchCoinData {
 		Map<String, String> coinMap = CoinSimplify.getCoinNameMap();
 		Map<String, Double> coinPrice = new HashMap<String, Double>();
 		CoinList = CurrentClientsInfo.returnInterstedCoins();
-		CoinList.add("BTC");
-		CoinList.add("ETH");
+		
+//		CoinList.add("BTC");
+//		CoinList.add("ETH");
 //		System.out.println(CoinList.toString());
 //		System.out.println(CoinList.size());
 //		System.out.println(coinMap.keySet());
