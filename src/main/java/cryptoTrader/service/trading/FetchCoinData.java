@@ -1,8 +1,6 @@
 package cryptoTrader.service.trading;
 
-import java.time.format.DateTimeFormatter;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;    
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,39 +15,45 @@ import cryptoTrader.utils.CoinSimplify;
 import cryptoTrader.utils.DataFetcher;
 
 public class FetchCoinData {
-	static List<String> CoinList = new ArrayList<>();
-	
-	private static Map<String, Double> getCoinPrice() {
-		Map<String, String> coinMap = CoinSimplify.getCoinNameMap();
-		Map<String, Double> coinPrice = new HashMap<String, Double>();
-		CoinList = CurrentClientsInfo.returnInterstedCoins();
-		
+    private static List<String> CoinList = new ArrayList<>();
+
+    public static Map<String, Double> getCoinPrice() {
+        Map<String, String> coinMap = CoinSimplify.getCoinNameMap();
+        Map<String, Double> coinPrice = new HashMap<String, Double>();
+        CoinList = CurrentClientsInfo.returnInterstedCoins();
+
 //		CoinList.add("BTC");
 //		CoinList.add("ETH");
 //		System.out.println(CoinList.toString());
 //		System.out.println(CoinList.size());
 //		System.out.println(coinMap.keySet());
-		for (int i =0; i < CoinList.size(); i++) {
-			String coin = CoinList.get(i);
-			
-			for (String key: coinMap.keySet()) {
-				
-				if (coin.equals(key)){
-					String coinFullName = coinMap.get(key);
-					DataFetcher fetcher = new DataFetcher();
-					SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
-					Date date = new Date();  
-					double price = fetcher.getPriceForCoin(coinFullName, formatter.format(date));
-					coinPrice.put(key, price);
-				}	
-			}
-		}		
-		return coinPrice;
-	}	
-    public static void main(String[] args) {
-	Map<String, Double> buffer = getCoinPrice();
-	for (Entry entry: buffer.entrySet()) {
-	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
-	}
-	}
+        for (int i = 0; i < CoinList.size(); i++) {
+            String coin = CoinList.get(i);
+            for (String key: coinMap.keySet()) {
+
+                if (coin.equals(key)){
+                    String coinFullName = coinMap.get(key);
+                    DataFetcher fetcher = new DataFetcher();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                    Date date = new Date();
+                    double price = fetcher.getPriceForCoin(coinFullName, formatter.format(date));
+                    coinPrice.put(key, price);
+                }
+            }
+        }
+        return coinPrice;
+    }
+
+    // if return false the coins in the interested list can not get price.
+    public static boolean checkinterestedList(List<String> coinList2) {
+        return CoinSimplify.check(coinList2);
+    }
+//
+//    public static void main(String[] args) {
+//    	List<String> coinList2 = new ArrayList<>();
+//    	coinList2.add("BTC");
+//    	coinList2.add("ETH");
+//    	boolean flag = checkinterestedList(coinList2);
+//    	System.out.println(flag);
+//	}
 }

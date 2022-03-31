@@ -1,5 +1,8 @@
 package cryptoTrader.utils.strategyOperations;
 
+import cryptoTrader.entity.TradingBroker;
+import cryptoTrader.utils.DateConverter;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,10 +16,14 @@ public class BuyOperation implements StrategyOperation {
 
     // 	{"Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","13-January-2022"},
     private String currDateGenerator() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
-        return formatter.format(date);
+        String dateStr = formatter.format(date);
+        DateConverter dateConverter = new DateConverter();
+        dateStr = dateConverter.convertDate(dateStr);
+        return dateStr;
     }
+
     @Override
     public boolean BTC(String trader, String strategy, int quantity, double price) {
         boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "BTC", price);
@@ -90,6 +97,18 @@ public class BuyOperation implements StrategyOperation {
         } catch (IOException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public void handleInvalidBroker(String trader, String strategy, String coin) {
+        String action = "Fail";
+        try {
+            FileWriter writer = new FileWriter("transactionDB.txt");
+            String date = currDateGenerator();
+            writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + "Null" + "," + "Null" + "," + date + "\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

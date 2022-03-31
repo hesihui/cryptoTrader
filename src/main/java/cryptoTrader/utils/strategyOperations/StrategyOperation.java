@@ -1,5 +1,7 @@
 package cryptoTrader.utils.strategyOperations;
 
+import cryptoTrader.entity.TradingBroker;
+
 public interface StrategyOperation {
     public boolean BTC(String trader, String strategy, int quantity, double price);
     public boolean ETH(String trader, String strategy, int quantity, double price);
@@ -11,4 +13,5 @@ public interface StrategyOperation {
     public boolean SOL(String trader, String strategy, int quantity, double price);
     public boolean LUNA(String trader, String strategy, int quantity, double price);
     public boolean AVAX(String trader, String strategy, int quantity, double price);
+    public void handleInvalidBroker(String trader, String strategy, String coin);
 }

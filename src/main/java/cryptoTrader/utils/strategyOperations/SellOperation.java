@@ -1,10 +1,14 @@
 package cryptoTrader.utils.strategyOperations;
 
+import cryptoTrader.entity.TradingBroker;
+import cryptoTrader.utils.DateConverter;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.text.DateFormatSymbols;
 
 public class SellOperation implements StrategyOperation{
     public SellOperation() {
@@ -72,7 +76,7 @@ public class SellOperation implements StrategyOperation{
         return isSuccessful;
     }
 
-    private boolean writeTransactionDB(String trader,String strategy, int quantity, String coin, double price) {
+    private boolean writeTransactionDB(String trader, String strategy, int quantity, String coin, double price) {
         String action = "Sell";
         try {
             FileWriter writer = new FileWriter("transactionDB.txt");
@@ -87,8 +91,24 @@ public class SellOperation implements StrategyOperation{
     }
 
     private String currDateGenerator() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
-        return formatter.format(date);
+        String dateStr = formatter.format(date);
+        DateConverter dateConverter = new DateConverter();
+        dateStr = dateConverter.convertDate(dateStr);
+        return dateStr;
     }
+
+    public void handleInvalidBroker(String trader, String strategy, String coin) {
+        String action = "Fail";
+        try {
+            FileWriter writer = new FileWriter("transactionDB.txt");
+            String date = currDateGenerator();
+            writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + "Null" + "," + "Null" + "," + date + "\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
