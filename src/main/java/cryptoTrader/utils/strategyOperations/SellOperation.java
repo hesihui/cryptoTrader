@@ -15,76 +15,64 @@ public class SellOperation implements StrategyOperation{
 
     // (String trader,String strategy, int quantity, String coin, double price)
     @Override
-    public boolean BTC(String trader, String strategy, int quantity, double price) {
-        boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "BTC", price);
-        return isSuccessful;
+    public void BTC(String trader, String strategy, int quantity, double price) {
+        writeTransactionDB(trader,strategy,quantity, "BTC", price);
     }
 
     @Override
-    public boolean ETH(String trader, String strategy, int quantity, double price) {
-        boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "ETH", price);
-        return isSuccessful;
+    public void ETH(String trader, String strategy, int quantity, double price) {
+        writeTransactionDB(trader,strategy,quantity, "ETH", price);
     }
 
     @Override
-    public boolean USDT(String trader, String strategy, int quantity, double price) {
-        boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "USDT", price);
-        return isSuccessful;
+    public void USDT(String trader, String strategy, int quantity, double price) {
+        writeTransactionDB(trader,strategy,quantity, "USDT", price);
     }
 
     @Override
-    public boolean BNB(String trader, String strategy, int quantity, double price) {
-        boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "BNB", price);
-        return isSuccessful;
+    public void BNB(String trader, String strategy, int quantity, double price) {
+    	writeTransactionDB(trader,strategy,quantity, "BNB", price);
     }
 
     @Override
-    public boolean USDC(String trader, String strategy, int quantity, double price) {
-        boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "USDC", price);
-        return isSuccessful;
+    public void USDC(String trader, String strategy, int quantity, double price) {
+        writeTransactionDB(trader,strategy,quantity, "USDC", price);
     }
 
     @Override
-    public boolean XRP(String trader, String strategy, int quantity, double price) {
-        boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "XRP", price);
-        return isSuccessful;
+    public void XRP(String trader, String strategy, int quantity, double price) {
+        writeTransactionDB(trader,strategy,quantity, "XRP", price);
     }
 
     @Override
-    public boolean ADA(String trader, String strategy, int quantity, double price) {
-        boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "XRP", price);
-        return isSuccessful;
+    public void ADA(String trader, String strategy, int quantity, double price) {
+        writeTransactionDB(trader,strategy,quantity, "XRP", price);
     }
 
     @Override
-    public boolean SOL(String trader, String strategy, int quantity, double price) {
-        boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "SOL", price);
-        return isSuccessful;
+    public void SOL(String trader, String strategy, int quantity, double price) {
+        writeTransactionDB(trader,strategy,quantity, "SOL", price);
     }
 
     @Override
-    public boolean LUNA(String trader, String strategy, int quantity, double price) {
-        boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "LUNA", price);
-        return isSuccessful;
+    public void LUNA(String trader, String strategy, int quantity, double price) {
+        writeTransactionDB(trader,strategy,quantity, "LUNA", price);
     }
 
     @Override
-    public boolean AVAX(String trader, String strategy, int quantity, double price) {
-        boolean isSuccessful = writeTransactionDB(trader,strategy,quantity, "AVAX", price);
-        return isSuccessful;
+    public void AVAX(String trader, String strategy, int quantity, double price) {
+        writeTransactionDB(trader,strategy,quantity, "AVAX", price);
     }
 
-    private boolean writeTransactionDB(String trader, String strategy, int quantity, String coin, double price) {
+    private void writeTransactionDB(String trader, String strategy, int quantity, String coin, double price) {
         String action = "Sell";
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("transactionDB.txt", true));
             String date = currDateGenerator();
             writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + quantity + "," + price + "," + date + "\n");
             writer.close();
-            return true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
 

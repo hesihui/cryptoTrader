@@ -1,15 +1,15 @@
 package cryptoTrader.utils.strategyOperations;
 
 public interface StrategyOperation {
-    public boolean BTC(String trader, String strategy, int quantity, double price);
-    public boolean ETH(String trader, String strategy, int quantity, double price);
-    public boolean USDT(String trader, String strategy, int quantity, double price);
-    public boolean BNB(String trader, String strategy,int quantity, double price);
-    public boolean USDC(String trader, String strategy, int quantity, double price);
-    public boolean XRP(String trader, String strategy,int quantity, double price);
-    public boolean ADA(String trader, String strategy, int quantity, double price);
-    public boolean SOL(String trader, String strategy, int quantity, double price);
-    public boolean LUNA(String trader, String strategy, int quantity, double price);
-    public boolean AVAX(String trader, String strategy, int quantity, double price);
+	public void BTC(String trader, String strategy, int quantity, double price);
+    public void ETH(String trader, String strategy, int quantity, double price);
+    public void USDT(String trader, String strategy, int quantity, double price);
+    public void BNB(String trader, String strategy,int quantity, double price);
+    public void USDC(String trader, String strategy, int quantity, double price);
+    public void XRP(String trader, String strategy,int quantity, double price);
+    public void ADA(String trader, String strategy, int quantity, double price);
+    public void SOL(String trader, String strategy, int quantity, double price);
+    public void LUNA(String trader, String strategy, int quantity, double price);
+    public void AVAX(String trader, String strategy, int quantity, double price);
     public void handleInvalidBroker(String trader, String strategy, String coin);
 }
