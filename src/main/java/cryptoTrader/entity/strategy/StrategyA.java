@@ -33,13 +33,13 @@ public class StrategyA implements Strategy {
             } else if (coinsCanBePerformed.contains(coinName)){
                 // trading rule
                 if (coinName.equals("BTC")) {
-                    if (coinPrice.get(coinName) < 45700) {
+                    if (coinPrice.get(coinName) < 58000) {
                         buyOperation.BTC(broker.getClientName(), strategyName, 100, coinPrice.get(coinName));
                     } else {
                         buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
                     }
                 } else if (coinName.equals("ETH")) {
-                    if (coinPrice.get(coinName) < 3100) {
+                    if (coinPrice.get(coinName) < 4000) {
                         buyOperation.BTC(broker.getClientName(), strategyName, 100, coinPrice.get(coinName));
                     } else {
                         buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);

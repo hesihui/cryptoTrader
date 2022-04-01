@@ -34,6 +34,7 @@ public class FetchCoinData {
                     SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                     Date date = new Date();
                     double price = fetcher.getPriceForCoin(coinFullName, formatter.format(date));
+                    price = Math.round(price * 100.0) / 100.0;
                     coinPrice.put(key, price);
                 }
             }

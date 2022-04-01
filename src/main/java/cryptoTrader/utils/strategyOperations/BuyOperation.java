@@ -89,7 +89,7 @@ public class BuyOperation implements StrategyOperation {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("transactionDB.txt", true));
             String date = currDateGenerator();
-            writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + quantity + "," + price + "," + date);
+            writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + quantity + "," + price + "," + date + "\n");
             writer.close();
             return true;
         } catch (IOException e) {
