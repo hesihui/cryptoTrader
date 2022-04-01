@@ -31,8 +31,4 @@ public class NotifyBroker {
         }
     }
 
-//    public static void main(String[] args) {
-//        NotifyBroker test = new NotifyBroker();
-//        test.updateBrokerCoinPrice();
-//    }
 }

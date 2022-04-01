@@ -12,7 +12,6 @@ public class BuyOperation implements StrategyOperation {
 
     }
 
-    // 	{"Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","13-January-2022"},
     private String currDateGenerator() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
@@ -82,8 +81,6 @@ public class BuyOperation implements StrategyOperation {
         return isSuccessful;
     }
 
-    // {"Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","13-January-2022"}
-
     private boolean writeTransactionDB(String trader, String strategy, int quantity, String coin, double price) {
         String action = "Buy";
         try {
@@ -110,9 +107,5 @@ public class BuyOperation implements StrategyOperation {
         }
     }
 
-//    public static void main(String[] args) {
-//        BuyOperation buy = new BuyOperation();
-//        buy.writeTransactionDB("Broker", "StrategyA", 200, "ETC", 220.3);
-//    }
 }
 

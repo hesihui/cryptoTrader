@@ -108,11 +108,5 @@ public class SellOperation implements StrategyOperation{
             e.printStackTrace();
         }
     }
-
-        public static void main(String[] args) {
-        SellOperation buy = new SellOperation();
-        buy.writeTransactionDB("Broker", "StrategyA", 200, "ETC", 220.3);
-        buy.writeTransactionDB("Broker", "StrategyB", 200, "ETC", 220.3);
-    }
 }
 

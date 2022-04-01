@@ -15,7 +15,6 @@ public class UserService implements UserServiceInterFace {
             BufferedReader br = new BufferedReader(in);
 
             while ((record = br.readLine()) != null) {
-
                 // Split line by a whitespace character
                 // split[0] <- username
                 // split[1] <- password

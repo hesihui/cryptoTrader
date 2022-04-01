@@ -21,9 +21,6 @@ public class FetchCoinData {
         Map<String, String> coinMap = CoinSimplify.getCoinNameMap();
         Map<String, Double> coinPrice = new HashMap<String, Double>();
         CoinList = CurrentClientsInfo.returnInterstedCoins();
-//		System.out.println(CoinList.toString());
-//		System.out.println(CoinList.size());
-//		System.out.println(coinMap.keySet());
         for (int i = 0; i < CoinList.size(); i++) {
             String coin = CoinList.get(i);
             for (String key: coinMap.keySet()) {
@@ -42,19 +39,4 @@ public class FetchCoinData {
         return coinPrice;
     }
 
-    // if return false the coins in the interested list can not get price.
-//    public static boolean checkinterestedList(List<String> coinList2) {
-//        return CoinSimplify.check(coinList2);
-//    }
-
-    // if return false the coins in the interested list can not get price.
-    public boolean checkinterested(String coin) {
-        return CoinSimplify.check(coin);
-    }
-//
-//    public static void main(String[] args) {
-//        Map<String, Double> map = getCoinPrice();
-//        System.out.println(map.keySet());
-//        System.out.println(map.get("BTC"));
-//	}
 }
