@@ -20,7 +20,7 @@ public class NotifyBroker {
             // check if broker's interested list contains all the valid coins
             // update coin price
             for (String coin : coins) {
-                Double price = coinPriceMap.get(coins);
+                Double price = coinPriceMap.get(coin);
                 if (price == null) {
                     // if can't find any coin price, set the price default invalid value -100
                     broker.updateCoinPrice(coin, -100);
