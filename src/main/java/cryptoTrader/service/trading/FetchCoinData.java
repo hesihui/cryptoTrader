@@ -45,8 +45,8 @@ public class FetchCoinData {
     }
 
     // if return false the coins in the interested list can not get price.
-    public static boolean checkinterestedList(List<String> coinList2) {
-        return CoinSimplify.check(coinList2);
+    public boolean checkinterested(String coin) {
+        return CoinSimplify.check(coin);
     }
 //
 //    public static void main(String[] args) {

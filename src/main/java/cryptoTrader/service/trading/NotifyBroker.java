@@ -17,15 +17,9 @@ public class NotifyBroker {
         for (TradingBroker broker : tradingBrokerList) {
             List<String> coins = Arrays.asList(broker.getCoinList()); // stores interested coin list for single broker
             // check if broker's interested list contains all the valid coins
-            if (!FetchCoinData.checkinterestedList(coins)) {
-                broker.updateBrokerStatus(false);
-                continue;
-            } else {
-                broker.updateBrokerStatus(true);
-            }
             // update coin price
             for (String coin : coins) {
-                double price = coinPriceMap.get(coins);
+                Double price = coinPriceMap.get(coins);
                 broker.updateCoinPrice(coin, price);
             }
         }

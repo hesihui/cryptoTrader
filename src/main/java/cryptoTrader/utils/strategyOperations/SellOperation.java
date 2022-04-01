@@ -1,14 +1,12 @@
 package cryptoTrader.utils.strategyOperations;
 
-import cryptoTrader.entity.TradingBroker;
 import cryptoTrader.utils.DateConverter;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.text.DateFormatSymbols;
 
 public class SellOperation implements StrategyOperation{
     public SellOperation() {
@@ -79,7 +77,7 @@ public class SellOperation implements StrategyOperation{
     private boolean writeTransactionDB(String trader, String strategy, int quantity, String coin, double price) {
         String action = "Sell";
         try {
-            FileWriter writer = new FileWriter("transactionDB.txt");
+            BufferedWriter writer = new BufferedWriter(new FileWriter("transactionDB.txt", true));
             String date = currDateGenerator();
             writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + quantity + "," + price + "," + date);
             writer.close();
@@ -102,7 +100,7 @@ public class SellOperation implements StrategyOperation{
     public void handleInvalidBroker(String trader, String strategy, String coin) {
         String action = "Fail";
         try {
-            FileWriter writer = new FileWriter("transactionDB.txt");
+            BufferedWriter writer = new BufferedWriter(new FileWriter("transactionDB.txt", true));
             String date = currDateGenerator();
             writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + "Null" + "," + "Null" + "," + date + "\n");
             writer.close();
@@ -111,4 +109,10 @@ public class SellOperation implements StrategyOperation{
         }
     }
 
+        public static void main(String[] args) {
+        SellOperation buy = new SellOperation();
+        buy.writeTransactionDB("Broker", "StrategyA", 200, "ETC", 220.3);
+        buy.writeTransactionDB("Broker", "StrategyB", 200, "ETC", 220.3);
+    }
 }
+

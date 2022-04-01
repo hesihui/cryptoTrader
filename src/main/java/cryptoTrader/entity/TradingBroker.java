@@ -48,6 +48,10 @@ public class TradingBroker {
         coinPrice.put(coin, price);
     }
 
+    public Map<String, Double> getCoinPriceMap() {
+        return this.coinPrice;
+    }
+
     public void updateBrokerStatus(boolean status) {
         this.isValid = status;
     }

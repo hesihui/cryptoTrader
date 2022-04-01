@@ -1,7 +1,9 @@
 package cryptoTrader.entity.strategy;
 
+import cryptoTrader.entity.TradingBroker;
+
 public interface Strategy {
 
-    public boolean perform();
+    public void perform(TradingBroker broker);
 
 }
