@@ -26,7 +26,7 @@ public class StrategyB implements Strategy{
         Map<String, Double> coinPrice = broker.getCoinPriceMap();
 
         for (String coinName : coinPrice.keySet()) {
-            if (coinPrice.get(coinName) == null || !coinsCanBePerformed.contains(coinName)) {
+            if (coinPrice.get(coinName) == -100 || !coinsCanBePerformed.contains(coinName)) {
                 // if the provided coin name is not valid for data fetching
                 buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
             } else if (coinsCanBePerformed.contains(coinName)){

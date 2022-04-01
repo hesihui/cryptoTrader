@@ -28,8 +28,9 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-import cryptoTrader.service.entity.CurrentClientsInfo;
-import cryptoTrader.service.entity.TradingBroker;
+import cryptoTrader.entity.CurrentClientsInfo;
+import cryptoTrader.entity.TradingBroker;
+import cryptoTrader.service.trading.TradingActionsFacade;
 import cryptoTrader.utils.DataVisualizationCreator;
 
 public class MainUI extends JFrame implements ActionListener {
@@ -44,14 +45,15 @@ public class MainUI extends JFrame implements ActionListener {
 	// Should be a reference to a separate object in actual implementation
 	private List<String> selectedList;
 
-	private JTextArea selectedTickerList;
+	private JTextArea selectedTickerList; 
 //	private JTextArea tickerList;
 	private JTextArea tickerText;
 	private JTextArea BrokerText;
-	private JComboBox<String> strategyList;
-	private Map<String, List<String>> brokersTickers = new HashMap<>();
-	private Map<String, String> brokersStrategies = new HashMap<>();
-	private List<String> selectedTickers = new ArrayList<>();
+	private JComboBox<String> strategyList; 
+	private Map<String, List<String>> brokersTickers = new HashMap<>(); // key: broker name value: intersted list
+	private Map<String, String> brokersStrategies = new HashMap<>(); //key: broker name, value: strategy name
+	private List<String> selectedTickers = new ArrayList<>(); // the list of intersted coins => Set
+	
 	private String selectedStrategy = "";
 	private DefaultTableModel dtm;
 	private JTable table;
@@ -223,6 +225,14 @@ public class MainUI extends JFrame implements ActionListener {
 //					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
 	        }
 			stats.removeAll();
+			// after press "perform trade", reset the input table
+			for(int i = 0; i < dtm.getRowCount(); i = i + 0) {
+				dtm.removeRow(0);
+				revalidate();
+			}
+			// trigger strategy computation
+			TradingActionsFacade tradingActionsFacade = new TradingActionsFacade();
+			tradingActionsFacade.performTradingActions();
 			DataVisualizationCreator creator = new DataVisualizationCreator();
 			creator.createCharts();
 		} else if ("addTableRow".equals(command)) {

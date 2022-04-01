@@ -1,7 +1,7 @@
 package cryptoTrader.gui;
 
 import cryptoTrader.service.login.UserServiceProxy;
-import cryptoTrader.service.entity.CurrentClientsInfo;
+import cryptoTrader.entity.CurrentClientsInfo;
 
 import java.awt.EventQueue;
 

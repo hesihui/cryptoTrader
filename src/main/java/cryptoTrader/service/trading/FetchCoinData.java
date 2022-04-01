@@ -21,9 +21,6 @@ public class FetchCoinData {
         Map<String, String> coinMap = CoinSimplify.getCoinNameMap();
         Map<String, Double> coinPrice = new HashMap<String, Double>();
         CoinList = CurrentClientsInfo.returnInterstedCoins();
-
-//		CoinList.add("BTC");
-//		CoinList.add("ETH");
 //		System.out.println(CoinList.toString());
 //		System.out.println(CoinList.size());
 //		System.out.println(coinMap.keySet());
@@ -45,15 +42,18 @@ public class FetchCoinData {
     }
 
     // if return false the coins in the interested list can not get price.
+//    public static boolean checkinterestedList(List<String> coinList2) {
+//        return CoinSimplify.check(coinList2);
+//    }
+
+    // if return false the coins in the interested list can not get price.
     public boolean checkinterested(String coin) {
         return CoinSimplify.check(coin);
     }
 //
 //    public static void main(String[] args) {
-//    	List<String> coinList2 = new ArrayList<>();
-//    	coinList2.add("BTC");
-//    	coinList2.add("ETH");
-//    	boolean flag = checkinterestedList(coinList2);
-//    	System.out.println(flag);
+//        Map<String, Double> map = getCoinPrice();
+//        System.out.println(map.keySet());
+//        System.out.println(map.get("BTC"));
 //	}
 }
