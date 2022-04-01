@@ -19,11 +19,10 @@ public class UserService implements UserServiceInterFace {
                 // Split line by a whitespace character
                 // split[0] <- username
                 // split[1] <- password
-                String[] split = record.split("\\s");
+                String[] split = record.split("\\s"); // split the line by a space
 
                 if (userName.equals(split[0]) && password.equals(split[1])) {
-                    return true;
-                    // You found the user, exit the loop
+                    return true; // if user is found, then return true
                 }
 
             }
