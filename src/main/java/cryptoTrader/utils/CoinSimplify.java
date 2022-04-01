@@ -33,19 +33,4 @@ public class CoinSimplify {
 
 		return cryptoCoin;
 	}
-
-	public static boolean check(String coin) {
-		// TODO Auto-generated method stub
-		String coin2 = null;
-		List<String> coinAvaliable = new ArrayList<>();
-		coin2 = coin;
-		Map<String, String> coinMap = getCoinNameMap();
-		for (String key: coinMap.keySet()) {
-			coinAvaliable.add(key);
-		}
-		if (!coinAvaliable.contains(coin)) {
-			return false;
-		}
-		return true;
-	}
 }
