@@ -83,12 +83,16 @@ public class BuyOperation implements StrategyOperation {
             e.printStackTrace();
         }
     }
-
+    
     public void handleInvalidBroker(String trader, String strategy, String coin) {
-        String action = "Fail (strategy can not be applied)";
+        String message = "Cannot apply " + strategy + " with " + coin + " \nfor "+ trader;
+        JOptionPane.showMessageDialog(null, message, "Strategy Can't Apply", JOptionPane.INFORMATION_MESSAGE);
+        String action ="Fail (strategy not applied)";
+
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("transactionDB.txt", true));
             String date = currDateGenerator();
+
             writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + "Null" + "," + "Null" + "," + date);
             writer.write("\n");
             writer.close();
