@@ -85,7 +85,7 @@ public class BuyOperation implements StrategyOperation {
     }
 
     public void handleInvalidBroker(String trader, String strategy, String coin) {
-        String action = "Fail";
+        String action = "Fail (strategy can not be applied)";
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("transactionDB.txt", true));
             String date = currDateGenerator();
