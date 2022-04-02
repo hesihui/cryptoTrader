@@ -1,7 +1,7 @@
 package cryptoTrader.utils.strategyOperations;
 
 public interface StrategyOperation {
-	public void BTC(String trader, String strategy, int quantity, double price);
+    public void BTC(String trader, String strategy, int quantity, double price);
     public void ETH(String trader, String strategy, int quantity, double price);
     public void USDT(String trader, String strategy, int quantity, double price);
     public void BNB(String trader, String strategy,int quantity, double price);

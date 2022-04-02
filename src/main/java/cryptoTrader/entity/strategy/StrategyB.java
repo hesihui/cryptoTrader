@@ -16,7 +16,7 @@ public class StrategyB implements Strategy{
         coinsCanBePerformed.add("BTC");
         coinsCanBePerformed.add("SOL");
         coinsCanBePerformed.add("XRP");
-        coinsCanBePerformed.add("ADA");  
+        coinsCanBePerformed.add("ADA");
     }
 
     @Override

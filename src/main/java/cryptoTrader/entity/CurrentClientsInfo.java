@@ -6,6 +6,7 @@ public class CurrentClientsInfo {
     private static CurrentClientsInfo instance = null;
     private static List<TradingBroker> tradingBrokerList = new ArrayList<>();
     private static List<String> clientNames = new ArrayList<>();
+    private static List<String> interestedCoinList = new ArrayList<>();
 
     private CurrentClientsInfo() {
 
@@ -29,6 +30,7 @@ public class CurrentClientsInfo {
     public static void addTradingName(String newName) {
         clientNames.add(newName);
     }
+
     public static boolean ifBrokerNameDuplicated(String newName) {
         for (String name : clientNames) {
             if (newName.equals(name)) {
@@ -42,7 +44,7 @@ public class CurrentClientsInfo {
         tradingBrokerList = new ArrayList<>();
         clientNames = new ArrayList<>();
     }
-    
+
     public static List<String> returnInterstedCoins() {
         Set<String> tradingSet = new HashSet<>();
         for (TradingBroker broker : tradingBrokerList) {

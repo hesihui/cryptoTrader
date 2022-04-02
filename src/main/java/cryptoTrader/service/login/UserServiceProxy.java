@@ -1,5 +1,8 @@
 package cryptoTrader.service.login;
 
+import cryptoTrader.service.login.UserServiceInterFace;
+import cryptoTrader.service.login.UserService;
+
 public class UserServiceProxy implements UserServiceInterFace {
 
     @Override

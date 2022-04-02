@@ -18,28 +18,33 @@ public class StrategyA implements Strategy {
         coinsCanBePerformed.add("USDC");
         coinsCanBePerformed.add("USDT");
     }
-    
+
     @Override
     public void perform(TradingBroker broker) {
-    	
         BuyOperation buyOperation = new BuyOperation();
         // check if broker is valid to perform
+
         Map<String, Double> coinPrice = broker.getCoinPriceMap();
 
         for (String coinName : coinPrice.keySet()) {
-            if (coinPrice.get(coinName) == -100 || !coinsCanBePerformed.contains(coinName)) {
+            if (coinPrice.get(coinName) == -100) {
                 // if the provided coin name is not valid for data fetching
+                buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
+            } else if (!coinsCanBePerformed.contains(coinName)) {
                 buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
             } else if (coinsCanBePerformed.contains(coinName)){
                 // trading rule
                 if (coinName.equals("BTC")) {
-                    if (coinPrice.get(coinName) < 57000) {
+                    System.out.println(coinPrice.get(coinName) );
+                    if (coinPrice.get(coinName) < 60000) {
                         buyOperation.BTC(broker.getClientName(), strategyName, 100, coinPrice.get(coinName));
+//                        System.out.print("test-1");
                     } else {
                         buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
+//                        System.out.print("test-2");
                     }
                 } else if (coinName.equals("ETH")) {
-                    if (coinPrice.get(coinName) < 3100) {
+                    if (coinPrice.get(coinName) < 3500) {
                         buyOperation.BTC(broker.getClientName(), strategyName, 100, coinPrice.get(coinName));
                     } else {
                         buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);

@@ -21,6 +21,7 @@ public class NotifyBroker {
             // update coin price
             for (String coin : coins) {
                 Double price = coinPriceMap.get(coin);
+                System.out.println(price);
                 if (price == null) {
                     // if can't find any coin price, set the price default invalid value -100
                     broker.updateCoinPrice(coin, -100);
@@ -30,5 +31,4 @@ public class NotifyBroker {
             }
         }
     }
-
 }

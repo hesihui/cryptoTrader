@@ -1,37 +1,21 @@
 package cryptoTrader.gui;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
+import cryptoTrader.entity.TradingBroker;
+import cryptoTrader.entity.CurrentClientsInfo;
+import cryptoTrader.service.trading.TradingActionsFacade;
+import cryptoTrader.utils.DataVisualizationCreator;
+import cryptoTrader.entity.TransactionRecord;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
+import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.*;
 
-import cryptoTrader.entity.CurrentClientsInfo;
-import cryptoTrader.entity.TradingBroker;
-import cryptoTrader.service.trading.TradingActionsFacade;
-import cryptoTrader.utils.DataVisualizationCreator;
 
 public class MainUI extends JFrame implements ActionListener {
 	/**
@@ -45,15 +29,14 @@ public class MainUI extends JFrame implements ActionListener {
 	// Should be a reference to a separate object in actual implementation
 	private List<String> selectedList;
 
-	private JTextArea selectedTickerList; 
+	private JTextArea selectedTickerList;
 //	private JTextArea tickerList;
 	private JTextArea tickerText;
 	private JTextArea BrokerText;
-	private JComboBox<String> strategyList; 
-	private Map<String, List<String>> brokersTickers = new HashMap<>(); // key: broker name value: intersted list
-	private Map<String, String> brokersStrategies = new HashMap<>(); //key: broker name, value: strategy name
-	private List<String> selectedTickers = new ArrayList<>(); // the list of intersted coins => Set
-	
+	private JComboBox<String> strategyList;
+	private Map<String, List<String>> brokersTickers = new HashMap<>();
+	private Map<String, String> brokersStrategies = new HashMap<>();
+	private List<String> selectedTickers = new ArrayList<>();
 	private String selectedStrategy = "";
 	private DefaultTableModel dtm;
 	private JTable table;
@@ -71,42 +54,7 @@ public class MainUI extends JFrame implements ActionListener {
 		super("Crypto Trading Tool");
 
 		// Set top bar
-
-
 		JPanel north = new JPanel();
-
-//		north.add(strategyList);
-
-		// Set bottom bar
-//		JLabel from = new JLabel("From");
-//		UtilDateModel dateModel = new UtilDateModel();
-//		Properties p = new Properties();
-//		p.put("text.today", "Today");
-//		p.put("text.month", "Month");
-//		p.put("text.year", "Year");
-//		JDatePanelImpl datePanel = new JDatePanelImpl(dateModel, p);
-//		@SuppressWarnings("serial")
-//		JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new AbstractFormatter() {
-//			private String datePatern = "dd/MM/yyyy";
-//
-//			private SimpleDateFormat dateFormatter = new SimpleDateFormat(datePatern);
-//
-//			@Override
-//			public Object stringToValue(String text) throws ParseException {
-//				return dateFormatter.parseObject(text);
-//			}
-//
-//			@Override
-//			public String valueToString(Object value) throws ParseException {
-//				if (value != null) {
-//					Calendar cal = (Calendar) value;
-//					return dateFormatter.format(cal.getTime());
-//				}
-//
-//				return "";
-//			}
-//		});
-
 		JButton trade = new JButton("Perform Trade");
 		trade.setActionCommand("refresh");
 		trade.addActionListener(this);
@@ -122,11 +70,11 @@ public class MainUI extends JFrame implements ActionListener {
 				TitledBorder.CENTER, TitledBorder.TOP));
 
 		Vector<String> strategyNames = new Vector<String>();
-		strategyNames.add("None");
 		strategyNames.add("Strategy-A");
 		strategyNames.add("Strategy-B");
 		strategyNames.add("Strategy-C");
 		strategyNames.add("Strategy-D");
+		strategyNames.add("Strategy-E");
 
 		TableColumn strategyColumn = table.getColumnModel().getColumn(2);
 
@@ -219,22 +167,17 @@ public class MainUI extends JFrame implements ActionListener {
 					TradingBroker newBroker = new TradingBroker(traderName, coinNames, strategyName);
 					CurrentClientsInfo.addTradingBroker(newBroker);
 					List<TradingBroker> brokerList = CurrentClientsInfo.returnBrokerList();
-//					System.out.println(brokerList.get(0).getClientName());
-//					System.out.println(brokerList.get(0).getCoinList()[0]);
-//					System.out.println(brokerList.get(0).getStrategy());
-//					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
 	        }
 			stats.removeAll();
+			TradingActionsFacade tradingActionsFacade = new TradingActionsFacade();
+			tradingActionsFacade.performTradingActions();
+			CurrentClientsInfo.clearLists();
 			// after press "perform trade", reset the input table
 			for(int i = 0; i < dtm.getRowCount(); i = i + 0) {
 				dtm.removeRow(0);
 				revalidate();
 			}
-			// trigger strategy computation
-			TradingActionsFacade tradingActionsFacade = new TradingActionsFacade();
-			tradingActionsFacade.performTradingActions();
-			DataVisualizationCreator creator = new DataVisualizationCreator();
-			creator.createCharts();
+
 		} else if ("addTableRow".equals(command)) {
 			dtm.addRow(new String[3]);
 		} else if ("remTableRow".equals(command)) {

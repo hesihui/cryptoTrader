@@ -1,6 +1,7 @@
 package cryptoTrader.entity.strategy;
 
 import cryptoTrader.entity.TradingBroker;
+import cryptoTrader.utils.strategyOperations.BuyOperation;
 import cryptoTrader.utils.strategyOperations.SellOperation;
 
 import java.util.ArrayList;
@@ -16,9 +17,8 @@ public class StrategyD implements Strategy{
         coinsCanBePerformed.add("BTC");
         coinsCanBePerformed.add("BNB");
         coinsCanBePerformed.add("USDC");
-        coinsCanBePerformed.add("USDT");   
+        coinsCanBePerformed.add("USDT");
     }
-
 
     @Override
     public void perform(TradingBroker broker) {
@@ -33,13 +33,13 @@ public class StrategyD implements Strategy{
             } else if (coinsCanBePerformed.contains(coinName)){
                 // trading rule
                 if (coinName.equals("BTC")) {
-                    if (coinPrice.get(coinName) > 42000) {
+                    if (coinPrice.get(coinName) > 45800) {
                         sellOperation.BTC(broker.getClientName(), strategyName, 200, coinPrice.get(coinName));
                     } else {
                         sellOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
                     }
                 } else if (coinName.equals("ETH")) {
-                    if (coinPrice.get(coinName) > 3000) {
+                    if (coinPrice.get(coinName) > 3300) {
                         sellOperation.BTC(broker.getClientName(), strategyName, 500, coinPrice.get(coinName));
                     } else {
                         sellOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
@@ -51,13 +51,13 @@ public class StrategyD implements Strategy{
                         sellOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
                     }
                 } else if (coinName.equals("USDC")) {
-                    if (coinPrice.get(coinName) > 0.8) {
+                    if (coinPrice.get(coinName) > 1) {
                         sellOperation.BTC(broker.getClientName(), strategyName, 400, coinPrice.get(coinName));
                     } else {
                         sellOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
                     }
                 } else if (coinName.equals("USDT")) {
-                    if (coinPrice.get(coinName) > 0.8) {
+                    if (coinPrice.get(coinName) > 1) {
                         sellOperation.BTC(broker.getClientName(), strategyName, 500, coinPrice.get(coinName));
                     } else {
                         sellOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);

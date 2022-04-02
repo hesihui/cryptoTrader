@@ -33,4 +33,36 @@ public class CoinSimplify {
 
 		return cryptoCoin;
 	}
+
+//	public static boolean check(List<String> coinList) {
+//		// TODO Auto-generated method stub
+//		List<String> coinList2 = new ArrayList<>();
+//		List<String> coinAvaliable = new ArrayList<>();
+//		coinList2 = coinList;
+//		Map<String, String> coinMap = getCoinNameMap();
+//		for (String key: coinMap.keySet()) {
+//			coinAvaliable.add(key);
+//		}
+//		for (int i = 0; i < coinList2.size(); i ++) {
+//			String crypto = coinList2.get(i);
+//			if (!coinAvaliable.contains(crypto)) {
+//				return false;
+//			}
+//		}
+//		return true;
+//	}
+	public static boolean check(String coin) {
+		// TODO Auto-generated method stub
+		String coin2 = null;
+		List<String> coinAvaliable = new ArrayList<>();
+		coin2 = coin;
+		Map<String, String> coinMap = getCoinNameMap();
+		for (String key: coinMap.keySet()) {
+			coinAvaliable.add(key);
+		}
+		if (!coinAvaliable.contains(coin)) {
+			return false;
+		}
+		return true;
+	}
 }

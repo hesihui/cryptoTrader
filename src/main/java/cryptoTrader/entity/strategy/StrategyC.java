@@ -10,7 +10,6 @@ import java.util.Map;
 public class StrategyC implements Strategy{
     private List<String> coinsCanBePerformed = new ArrayList<String>();
     private String strategyName = "Strategy-C";
-
     public StrategyC() {
         coinsCanBePerformed.add("ETH");
         coinsCanBePerformed.add("BTC");
@@ -32,13 +31,13 @@ public class StrategyC implements Strategy{
             } else if (coinsCanBePerformed.contains(coinName)){
                 // trading rule
                 if (coinName.equals("BTC")) {
-                    if (coinPrice.get(coinName) < 45500) {
+                    if (coinPrice.get(coinName) < 60000) {
                         buyOperation.BTC(broker.getClientName(), strategyName, 20, coinPrice.get(coinName));
                     } else {
                         buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
                     }
                 } else if (coinName.equals("ETH")) {
-                    if (coinPrice.get(coinName) < 3150) {
+                    if (coinPrice.get(coinName) < 4000) {
                         buyOperation.BTC(broker.getClientName(), strategyName, 150, coinPrice.get(coinName));
                     } else {
                         buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);

@@ -5,6 +5,7 @@ public class TradingActionsFacade {
     private NotifyBroker notifyBroker;
     private PerformStrategyAnalysis performStrategyAnalysis;
 
+
     public TradingActionsFacade () {
         displayCoinData = new DisplayCoinData();
         notifyBroker = new NotifyBroker();
@@ -17,5 +18,6 @@ public class TradingActionsFacade {
         notifyBroker.updateBrokerCoinPrice();
         // step3: perform strategy computations
         performStrategyAnalysis.AnalyzeStrategy();
+        displayCoinData.visualizationGenerator();
     }
 }

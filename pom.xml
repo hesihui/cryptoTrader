@@ -5,20 +5,20 @@
 	<groupId>ca.uwo</groupId>
 	<artifactId>cryptoAnalyzer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>7</source>
-					<target>7</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-	<dependencies>
+    <dependencies>
 		<!-- https://mvnrepository.com/artifact/org.jdatepicker/jdatepicker -->
 		<dependency>
 			<groupId>org.jdatepicker</groupId>
@@ -41,8 +41,4 @@
 			<version>3.15.0</version>
 		</dependency>
 	</dependencies>
-	<properties>
-		<maven.compiler.source>8</maven.compiler.source>
-		<maven.compiler.target>8</maven.compiler.target>
-	</properties>
 </project>

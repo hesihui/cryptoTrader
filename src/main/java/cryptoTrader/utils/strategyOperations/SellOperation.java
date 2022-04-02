@@ -31,7 +31,7 @@ public class SellOperation implements StrategyOperation{
 
     @Override
     public void BNB(String trader, String strategy, int quantity, double price) {
-    	writeTransactionDB(trader,strategy,quantity, "BNB", price);
+        writeTransactionDB(trader,strategy,quantity, "BNB", price);
     }
 
     @Override
@@ -69,7 +69,8 @@ public class SellOperation implements StrategyOperation{
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("transactionDB.txt", true));
             String date = currDateGenerator();
-            writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + quantity + "," + price + "," + date + "\n");
+            writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + quantity + "," + price + "," + date);
+            writer.write("\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -90,11 +91,11 @@ public class SellOperation implements StrategyOperation{
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("transactionDB.txt", true));
             String date = currDateGenerator();
-            writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + "Null" + "," + "Null" + "," + date + "\n");
+            writer.write(trader+ "," + strategy + "," + coin + "," + action + "," + "Null" + "," + "Null" + "," + date);
+            writer.write("\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
-
