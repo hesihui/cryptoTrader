@@ -96,10 +96,4 @@ public class BuyOperation implements StrategyOperation {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        BuyOperation buyOperation = new BuyOperation();
-        buyOperation.handleInvalidBroker("Trading-Broker-3","Strategy-A","BTC");
-        buyOperation.BTC("Trading-Broker-3", "Strategy-A",400,300.20);
-    }
 }
