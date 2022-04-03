@@ -1,8 +1,0 @@
-Trading-Broker-1,Strategy-A,BTC,Buy,100,56902.81,01-April-2022
-Trading-Broker-1,Strategy-A,ETH,Fail,Null,Null,01-April-2022
-Trading-Broker-1,Strategy-A,BTC,Buy,100,56902.81,01-April-2022
-Trading-Broker-1,Strategy-A,BTC,Buy,100,56902.81,01-April-2022
-kk,Strategy-A,BTC,Buy,100,57943.25,02-April-2022
-kk,Strategy-A,BTC,Buy,100,57943.25,02-April-2022
-kk,Strategy-C,BTC,Buy,20,57943.25,02-April-2022
-kk,Strategy-C,BTC,Buy,20,57943.25,02-April-2022

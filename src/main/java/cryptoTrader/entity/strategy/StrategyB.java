@@ -2,6 +2,8 @@ package cryptoTrader.entity.strategy;
 
 import cryptoTrader.entity.TradingBroker;
 import cryptoTrader.utils.strategyOperations.BuyOperation;
+import cryptoTrader.utils.strategyOperations.SellOperation;
+import cryptoTrader.utils.strategyOperations.StrategyOperationContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +12,10 @@ import java.util.Map;
 public class StrategyB implements Strategy{
     private List<String> coinsCanBePerformed = new ArrayList<String>();
     private String strategyName = "Strategy-B";
+    String choice;
 
     public StrategyB() {
+        choice = "Buy";
         coinsCanBePerformed.add("ETH");
         coinsCanBePerformed.add("BTC");
         coinsCanBePerformed.add("SOL");
@@ -21,45 +25,67 @@ public class StrategyB implements Strategy{
 
     @Override
     public void perform(TradingBroker broker) {
-        BuyOperation buyOperation = new BuyOperation();
-        // check if broker is valid to perform
-        Map<String, Double> coinPrice = broker.getCoinPriceMap();
+        StrategyOperationContext context = new StrategyOperationContext();
+        // create strategy obj by the type of operations
+        if (choice.equals("Buy")) {
+            context.setStrategyOp(new BuyOperation());
+        } else {
+            context.setStrategyOp(new SellOperation());
+        }
 
+        // map for checking if broker is valid to perform
+        Map<String, Double> coinPrice = broker.getCoinPriceMap();
+        Boolean isFail = true;
         for (String coinName : coinPrice.keySet()) {
-            if (coinPrice.get(coinName) == -100 || !coinsCanBePerformed.contains(coinName)) {
+            if (coinPrice.get(coinName) == -100) {
                 // if the provided coin name is not valid for data fetching
-                buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
+                isFail = true;
+                context.executeOperation(isFail,broker.getClientName(),strategyName, 0, coinName, 0.0 );
+            } else if (!coinsCanBePerformed.contains(coinName)) {
+                isFail = true;
+                context.executeOperation(isFail,broker.getClientName(),strategyName, 0, coinName, 0.0 );
             } else if (coinsCanBePerformed.contains(coinName)){
                 // trading rule
                 if (coinName.equals("BTC")) {
+                    System.out.println(coinPrice.get(coinName) );
                     if (coinPrice.get(coinName) < 45600) {
-                        buyOperation.BTC(broker.getClientName(), strategyName, 1000, coinPrice.get(coinName));
+                        isFail = false;
+                        context.executeOperation(isFail, broker.getClientName(), strategyName, 100, coinName, coinPrice.get(coinName));
                     } else {
-                        buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
+                        isFail = true;
+                        context.executeOperation(isFail,broker.getClientName(),strategyName, 0, coinName, 0.0 );
                     }
                 } else if (coinName.equals("ETH")) {
                     if (coinPrice.get(coinName) < 3200) {
-                        buyOperation.BTC(broker.getClientName(), strategyName, 300, coinPrice.get(coinName));
+                        isFail = false;
+                        context.executeOperation(isFail, broker.getClientName(), strategyName, 300, coinName, coinPrice.get(coinName));
                     } else {
-                        buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
+                        isFail = true;
+                        context.executeOperation(isFail,broker.getClientName(),strategyName, 0, coinName, 0.0 );
                     }
                 } else if (coinName.equals("SOL")) {
-                    if (coinPrice.get(coinName) < 122) {
-                        buyOperation.BTC(broker.getClientName(), strategyName, 500, coinPrice.get(coinName));
+                    if (coinPrice.get(coinName) < 200) {
+                        isFail = false;
+                        context.executeOperation(isFail, broker.getClientName(), strategyName, 500, coinName, coinPrice.get(coinName));
                     } else {
-                        buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
+                        isFail = true;
+                        context.executeOperation(isFail,broker.getClientName(),strategyName, 0, coinName, 0.0 );
                     }
                 } else if (coinName.equals("XRP")) {
                     if (coinPrice.get(coinName) < 0.8) {
-                        buyOperation.BTC(broker.getClientName(), strategyName, 30000, coinPrice.get(coinName));
+                        isFail = false;
+                        context.executeOperation(isFail, broker.getClientName(), strategyName, 30000, coinName, coinPrice.get(coinName));
                     } else {
-                        buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
+                        isFail = true;
+                        context.executeOperation(isFail,broker.getClientName(),strategyName, 0, coinName, 0.0 );
                     }
                 } else if (coinName.equals("ADA")) {
                     if (coinPrice.get(coinName) < 1.15) {
-                        buyOperation.BTC(broker.getClientName(), strategyName, 20000, coinPrice.get(coinName));
+                        isFail = false;
+                        context.executeOperation(isFail, broker.getClientName(), strategyName, 20000, coinName, coinPrice.get(coinName));
                     } else {
-                        buyOperation.handleInvalidBroker(broker.getClientName(), strategyName, coinName);
+                        isFail = true;
+                        context.executeOperation(isFail,broker.getClientName(),strategyName, 0, coinName, 0.0 );
                     }
                 }
 

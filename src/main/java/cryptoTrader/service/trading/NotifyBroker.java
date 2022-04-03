@@ -16,12 +16,10 @@ public class NotifyBroker {
         List<TradingBroker> tradingBrokerList = CurrentClientsInfo.returnBrokerList();
         for (TradingBroker broker : tradingBrokerList) {
             List<String> coins = Arrays.asList(broker.getCoinList()); // stores interested coin list for single broker
-            System.out.println(coins);
             // check if broker's interested list contains all the valid coins
             // update coin price
             for (String coin : coins) {
                 Double price = coinPriceMap.get(coin);
-                System.out.println(price);
                 if (price == null) {
                     // if can't find any coin price, set the price default invalid value -100
                     broker.updateCoinPrice(coin, -100);
